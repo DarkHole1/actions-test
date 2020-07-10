@@ -3,8 +3,19 @@ on: [push]
 
 jobs:
   build:
-    name: Hello world workflow
+    name: Hello world
     runs-on: ubuntu-latest
     steps:
       - name: Echo hello world
         run: echo 'Hello world'
+  test:
+    name: Test some shit
+    needs: build
+    steps:
+      - name: Always fail
+        run: false
+  final:
+    name: Never run
+    needs: test
+      - name: Never
+        run: echo gonna wake up
