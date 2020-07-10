@@ -17,5 +17,6 @@ jobs:
   final:
     name: Never run
     needs: test
+    steps:
       - name: Never
         run: echo gonna wake up
